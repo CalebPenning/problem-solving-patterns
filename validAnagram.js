@@ -50,3 +50,31 @@ const anagramChecker = (word1, word2) => {
     }
     return true
 }
+
+
+// function that finds two numbers in a sorted array that sum to zero
+// naive approach
+const getZeroSum = nums => {
+    for (let i = 0; i < nums.length; i++) {
+        // if outer loop goes past all negative numbers
+        // and there's no match, break
+        if (nums[i] > 0) break
+        for (let j = i + 1; j < nums.length; j++) {
+            if (nums[i] + nums[j] === 0) return [nums[i], nums[j]]
+        }
+    }
+}
+
+// multiple pointers approach 
+// remember this is a sorted array
+const zeroSum = nums => {
+    let left = 0
+    let right = nums.length - 1
+
+    while (left < right) {
+        const sum = nums[left] + nums[right]
+        if (sum === 0) return [nums[left], nums[right]]
+        else if (sum > 0) right--
+        else left++
+    }
+}
