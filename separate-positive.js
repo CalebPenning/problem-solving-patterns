@@ -14,6 +14,5 @@ function separatePositive(nums=[]) {
         if (currRight < 0) right--
         if (currLeft > 0) left++
     }
-    console.log(nums)
     return nums
 }
